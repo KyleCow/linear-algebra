@@ -1,0 +1,83 @@
+\documentclass{report}
+\newif\ifpersonality
+\personalityfalse
+\input{preamble.tex}
+
+\title{Linear Algebra Done Wrong}
+\author{Kyle Thompson}
+
+\begin{document}
+\maketitle
+\chapter{Basic Definitions}
+\section{Notation}
+We fix a closed symetric monoidal category $(\mathcal{C}, \otimes, \one, [-,-])$. We can denote components of the unit and counit of the adjunction as
+\[
+\eta_{A,B} \colon A \to [B,A \otimes B] \quad \epsilon_{A,B} \colon [B,A] \otimes B \to A
+\]
+And for the monoidal structure write
+\[
+\lambda_A \colon \one \otimes A \to A \quad \rho_A \colon A \otimes \one \to A \quad \alpha_{A,B,C} \colon A \otimes (B \otimes C) \to (A \otimes B) \otimes C
+\]
+\[
+s_{A,B} \colon A \otimes B \to B \otimes A
+\]
+For an object $A$ write the dual $[A,\one]$ as $A^\vee$. To construct determinants we will need a zero object denoted $0$. Note that as we are in a closed monoidal setting $\otimes$ preserves coproducts hense $0 \otimes A \cong A \otimes 0 \cong 0$ for any $A$ so should it not exist if we formally add it to our category we don't get any issues with our monoidal structure.
+\section{Trace}
+Given a morphism $F \colon A \to A$ we would like to break it down into an easier to understand morphism $\operatorname{tr}(F)\colon \one \to \one$. To do so first we must internalise $f \in \hom(A,B)$ to some $n(f) \in [A,B]$, or more accurately $n(f) \colon \one \to [A,B]$. To do so we take the composition
+\[
+\begin{tikzcd}
+\one \arrow[r, "{\eta_{\one,A}}"] & {[A,\one \otimes A]} \arrow[r, "{[A,\lambda_A]}"] & {[A,A]} \arrow[r, "{[A,f]}"] & {[A,B]}
+\end{tikzcd}
+\]
+\[
+n(f) = [A,f\circ \lambda_A] \circ \eta_{\one,A}
+\]
+Classically when computing the trace of a map one takes a matrix representation, we shall do the same by passing through $A \otimes A^\vee$. We construct a map $\phi_{A,B} \colon B \otimes A^\vee \to [A,B]$ via the composition
+\[
+\begin{tikzcd}
+B \otimes A^\vee \arrow[r, "{\eta_{B \otimes A^\vee,A}}"] \arrow[rd, "{\phi_{A,B}}"] & {[A,(B \otimes A^\vee) \otimes A]} \arrow[r, "{[A,\alpha_{B,A^\vee,A}^{-1}]}"] & {[A,B \otimes (A^\vee \otimes A)]} \arrow[d, "{[A,B \otimes\epsilon_{\one,A}]}"] \\
+                                                                                     & {[A,B]}                                                                        & {[A,B \otimes \one]} \arrow[l, "{[A,\rho_B]}"]                                  
+\end{tikzcd}
+\]
+\[
+\phi_{A,B}=[A,\rho_B \circ (B \otimes \epsilon_{\one,A})\circ \alpha_{B,A^\vee,A}^{-1}] \circ \eta_{B \otimes A^\vee,A}
+\]
+Of course not all maps will involve themselves with $A \otimes A^\vee$ and so we take the following definition
+\begin{definition}[Nuclear Morphism]
+    We say a morphism $f \colon A \to B$ is \textit{nuclear} if there exists some map $N(f)$ so that
+    \[
+\begin{tikzcd}
+\one \arrow[rd, "n(f)"'] \arrow[r, "N(f)"] & B \otimes A^\vee \arrow[d, "{\phi_{A,B}}"] \\
+                                           & {[A,B]}                                   
+\end{tikzcd}
+    \]
+    Commutes
+\end{definition}
+\begin{definition}
+    An object $A$ is called \textit{nuclear} if $\id_A$ is nuclear. Equivalently if $\phi_{A,A}$ is an isomorphism
+\end{definition}
+\begin{definition}
+    We say $f \colon A \to A$ is a trace-class map if $f$ is nuclear and $N(f)$ is unique\footnote{In any linear algebra setting there isn't a difference between nuclear and trace-class but I'm not convinced they coencide in general}. Any endomorphism of a nuclear object is trace-class
+\end{definition}
+This is then the type of morphism with a well defined trace
+\begin{definition}[Trace]
+    Given a trace-class morphism $f \colon A \to A$ we can define the trace $\operatorname{tr}(f) \colon \one \to \one$ via the composition
+    \[
+\begin{tikzcd}
+\one \arrow[r, "N(f)"] & A \otimes A^\vee \arrow[r, "{s_{A,A^\vee}}"] & A^\vee \otimes A \arrow[r, "{\epsilon_{\one,A}}"] & \one
+\end{tikzcd}
+    \]
+    \[
+\operatorname{tr}(f) = \epsilon_{\one,A}\circ s_{A,A^\vee}\circ N(f)
+    \]
+\end{definition}
+\begin{lemma}
+    The trace forgets order, that is to say for nuclear morphisms $f,g$ where $f\circ g, g \circ f$ are trace-class we have $\operatorname{tr}(f \circ g) = \operatorname{tr}(g \circ f)$
+\end{lemma}
+\pagebreak
+\section{Determinants}
+% \begin{lstlisting}[breaklines]
+\begin{spverbatim}
+    Ok so it's easy to define the tensor algebra T(A), this is a group object in our monoidal category so we can look at the category of modules, ie objects with compatible left and right actions by T(A). Inside of here we want to find <x o x> somehow, the zero morphism feels helpful here to somehow find x o x in A o A and then do some smallest subobject for generation but I'm not sure. Then we can quotient by this inside of C as the underlying object is a subobject and we get the exterior algebra, we can extract the nth homogenous part as the image of A^otimes n -> T(A) -> \bigwedge(A). Then if we assume that A is finitely generated we take n to be minimal such that 1^n ->> A then the determinant is the induced map on \bigwedge^n(A). Perhaps \bigwedge^n preserves epis so the determinant is some endomorphism of a quotient of \bigwedge^n 1^n = 1
+\end{spverbatim}
+\end{document}

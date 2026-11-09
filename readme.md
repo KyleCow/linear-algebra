@@ -1,0 +1,2 @@
+<h1>Linear Algebra Done WRONG</h1>
+This is a for fun document trying to design the least intuitive linear algebra course possible. That is taking the most abstract definitions of each object that arises in linear algebra and then obtaining the most general versions of classsical results. I'm not sure if I'll do much of this but I had to write the trace stuff down somewhere. Probably the correct generality is presentable monoidal abelian or presentable stable infinity categories but I only want to add axioms once they feel neccacary 

@@ -1,0 +1,146 @@
+\usepackage[utf8]{inputenc}
+
+\DeclareUnicodeCharacter{202F}{FIX ME!!!!}
+
+\usepackage[nottoc]{tocbibind}
+\usepackage[english]{babel}
+\ifpersonality
+    \usepackage[style = draft]{biblatex}
+\else
+    \usepackage[style = alphabetic]{biblatex}
+\fi
+\addbibresource{bib.bib}
+
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{stmaryrd}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{question}[theorem]{Question}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{tkz-euclide}
+\usepackage{hyperref}
+\usepackage{bm}
+\usepackage{quiver} 
+\usepackage{todonotes}
+\usepackage{float}
+%\usepackage[a5paper, total={108mm, 160mm}]{geometry}
+\usepackage{mathbbol}
+\usepackage{tipa}
+\usepackage{listings}
+\usepackage{spverbatim}
+
+
+\usetikzlibrary{trees,snakes}
+
+
+% \newcommand{\cite}[1]{[#1]}
+
+\definecolor{beige}{HTML}{ECE1CB}
+\definecolor{brown}{HTML}{756244}
+
+
+
+\ifpersonality
+    \definecolor{background}{HTML}{ECE1CB}
+    \definecolor{text}{HTML}{756244}
+    \definecolor{red}{HTML}{D8524B}
+    \definecolor{blue}{HTML}{6488EA}
+    \usepackage[frak=pxtx]{mathalfa}
+    \usepackage{ccfonts}
+    \usepackage[T1]{fontenc}
+    \usepackage{titlesec}
+    \DeclareFontSeriesDefault[rm]{bf}{bx}
+    \DeclareFontSubstitution{T3}{ptm}{m}{n}
+    \renewcommand{\mathbf}[1]{\mathbffrak{#1}}
+\else
+    \definecolor{background}{HTML}{ffffff}
+    \definecolor{text}{HTML}{000000}
+\fi
+
+\pagecolor{background}
+\color{text}
+
+\newcommand{\ban}{\mathbf{Ban}_R^{\leq 1}}
+\newcommand{\fun}{\operatorname{Fun}}
+
+\newcommand{\one}{\mathbb{1}}
+
+\newtheorem{case}{Case}
+\newcommand{\qcoh}{\operatorname{Qcoh}}
+\newcommand{\tensor}[1]{\otimes_{#1}}
+\newcommand{\ctensor}[1]{\widehat\otimes_{#1}}
+\newcommand{\dtensor}[1]{\otimes_{#1}^\mathbb{L}}
+\newcommand{\dctensor}[1]{\widehat\otimes_{#1}^\mathbb{L}}
+\newcommand{\dd}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\oring}{\mathcal{O}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\h}[1]{\widehat{#1}}
+\newcommand{\height}{\operatorname{ht}}
+\newcommand{\supp}{\operatorname{Supp}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\coim}{\operatorname{coim}}
+\newcommand{\ext}[1][1]{\operatorname{Ext}^{#1}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Pp}{\mathbb{P}}
+\newcommand{\p}{\mathfrak{p}}
+\newcommand{\q}{\mathfrak{q}}
+\newcommand{\m}{\mathfrak{m}}
+\newcommand{\del}{\partial}
+\newcommand{\Gen}[1]{\langle #1 \rangle}
+\newcommand{\spec}{\operatorname{spec}}
+\newcommand{\Lim}[1]{\raisebox{0.5ex}{\scalebox{0.8}{$\displaystyle \lim_{#1}\;$}}}
+\newcommand{\IN}{\operatorname{in}_{\prec}}
+\newcommand{\ann}{\operatorname{ann}}
+\newcommand{\Ass}{\operatorname{Ass}}
+\newcommand{\coker}{\operatorname{coker}}
+\newcommand{\pic}{\mathcal{P}ic}
+\newcommand{\res}{\operatorname{res}}
+\newcommand{\A}[2]{\mathbb{A}_#1^{#2}}
+\newcommand{\Pj}[2]{\mathbb{P}_#1^{\#2}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\br}{\vspace{5mm}}
+\newcommand{\colim}{\operatorname{colim}}
+
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\I}{\mathbb{I}}
+
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cT}{\mathcal{T}}
+
+\newcommand{\lil}{{\lambda \in \Lambda}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cc}{\mathcal}
+\newcommand{\rightrightrightarrows}{\substack{\rightarrow\\[-1em] \rightarrow \\[-1em] \rightarrow}}
+
+\newcommand{\solid}[1]{{#1}^\blacksquare}
+
+\newcommand{\nul}{Nullstellensatz }
+\newcommand{\newsect}[1]{\setcounter{subsection}{#1}\setcounter{exercise}{0}}
+
+
+\usepackage[capitalise]{cleveref}
