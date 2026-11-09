@@ -64,7 +64,7 @@ This is then the type of morphism with a well defined trace
     Given a trace-class morphism $f \colon A \to A$ we can define the trace $\operatorname{tr}(f) \colon \one \to \one$ via the composition
     \[
 \begin{tikzcd}
-\one \arrow[r, "N(f)"] & A \otimes A^\vee \arrow[r, "{s_{A,A^\vee}}"] & A^\vee \otimes A \arrow[r, "{\epsilon_{\one,A}}"] & \one
+ \one \arrow[r,"N(f)"] & A \otimes A^\vee \arrow  [r,"{s_{A,A^\vee}}"] & A^\vee \otimes A \arrow [r,"{\epsilon_{\one,A}}"] &\one  
 \end{tikzcd}
     \]
     \[
@@ -78,6 +78,6 @@ This is then the type of morphism with a well defined trace
 \section{Determinants}
 % \begin{lstlisting}[breaklines]
 \begin{spverbatim}
-    Ok so it's easy to define the tensor algebra T(A), this is a group object in our monoidal category so we can look at the category of modules, ie objects with compatible left and right actions by T(A). Inside of here we want to find <x o x> somehow, the zero morphism feels helpful here to somehow find x o x in A o A and then do some smallest subobject for generation but I'm not sure. Then we can quotient by this inside of C as the underlying object is a subobject and we get the exterior algebra, we can extract the nth homogenous part as the image of A^otimes n -> T(A) -> \bigwedge(A). Then if we assume that A is finitely generated we take n to be minimal such that 1^n ->> A then the determinant is the induced map on \bigwedge^n(A). Perhaps \bigwedge^n preserves epis so the determinant is some endomorphism of a quotient of \bigwedge^n 1^n = 1
+  Ok so it's easy to define the tensor algebra T(A), this is a group object in our monoidal category so we can look at the category of modules, ie objects with compatible left and right actions by T(A). Inside of here we want to find <x o x> somehow, the zero morphism feels helpful here to somehow find x o x in A o A and then do some smallest subobject for generation but I'm not sure. Alternatively we can assume additivity and take the map id + s_AA: A o A -> A o A and use that to generate the ideal <x o y + y o x> which in characteristic not 2 gives the same theory. Then we can quotient by this inside of C as the underlying object is a subobject and we get the exterior algebra, we can extract the nth homogenous part as the image of A^otimes n -> T(A) -> \bigwedge(A). Then if we assume that A is finitely generated we take n to be minimal such that 1^n ->> A then the determinant is the induced map on \bigwedge^n(A). Perhaps \bigwedge^n preserves epis so the determinant is some endomorphism of a quotient of 1 (=\bigwedge^n 1^n)
 \end{spverbatim}
 \end{document}
